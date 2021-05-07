@@ -1,0 +1,62 @@
+indices: 0,1,2,3,4,5,6,7
+values:  7,6,5,4,3,2,1,0
+
+indices: 0,1,2,3	4,5,6,7
+values:  7,6,5,4	3,2,1,0
+
+indices: 0,1	2,3		4,5		6,7
+values:  7,6	5,4		3,2		1,0
+
+indices: 0		1		2		3		4		5		6		7
+values:  7		6		5		4		3		2		1		0
+
+
+
+
+
+
+
+
+1. sorting.merge.MergeSortWithSentinels: beginIndex = 0, endIndex = 7, middleIndex = 3, beginIndex < endIndex = true
+	leftArraySize = middleIndex - beginIndex + 1 = 3-0+1=4
+	rightArraySize = endIndex - middleIndex = 7-3=4
+	leftArrayRealSize = 5
+	rightArrayRealSize = 5
+	i = 0,1,2,3: 
+		begindIndex + i - 1 = 0+0-1=-1
+		begindIndex + i - 1 = 0+1-1=0
+		begindIndex + i - 1 = 0+2-1=1
+		begindIndex + i - 1 = 0+3-1=2
+	j = 0,1,2,3;
+		middleIndex + j = 3 + 0 = 3
+		middleIndex + j = 3 + 1 = 4
+		middleIndex + j = 3 + 2 = 5
+		middleIndex + j = 3 + 3 = 6
+	k = 0,1,2,3,4,6,7
+
+	2.1. sorting.merge.MergeSortWithSentinels: beginIndex = 0, endIndex = 3, middleIndex = 1, beginIndex < endIndex = true
+		leftArraySize = middleIndex - beginIndex + 1 = 1-0+1=2
+		rightArraySize = endIndex - middleIndex = 3-1=2
+		leftArrayRealSize = 3
+		rightArrayRealSize = 3
+		i = 0,1: 
+			begindIndex + i - 1 = 0+0-1=-1
+			begindIndex + i - 1 = 0+1-1=0
+		j = 0,1;
+			middleIndex + j = 1 + 0 = 1
+			middleIndex + j = 1 + 1 = 2
+		k = 0,1,2,3
+
+		2.1.1. sorting.merge.MergeSortWithSentinels: beginIndex = 0, endIndex = 1, middleIndex = 0, beginIndex < endIndex = true
+			2.1.1.1. sorting.merge.MergeSortWithSentinels: beginIndex = 0, endIndex = 0, middleIndex = 0, beginIndex < endIndex = false
+			2.1.1.2. sorting.merge.MergeSortWithSentinels: beginIndex = 1, endIndex = 1, middleIndex = 1, beginIndex < endIndex = false
+		2.1.2. sorting.merge.MergeSortWithSentinels: beginIndex = 2, endIndex = 3, middleIndex = 2, beginIndex < endIndex = true
+			2.1.2.1. sorting.merge.MergeSortWithSentinels: beginIndex = 2, endIndex = 2, middleIndex = 2, beginIndex < endIndex = false
+			2.1.2.2. sorting.merge.MergeSortWithSentinels: beginIndex = 3, endIndex = 3, middleIndex = 3, beginIndex < endIndex = false
+	2.2. sorting.merge.MergeSortWithSentinels: beginIndex = 4, endIndex = 7, middleIndex = 5, beginIndex < endIndex = true
+		2.2.1 sorting.merge.MergeSortWithSentinels: beginIndex = 4, endIndex = 5, middleIndex = 4, beginIndex < endIndex = true
+			2.2.1.1. sorting.merge.MergeSortWithSentinels: beginIndex = 4, endIndex = 4, middleIndex = 4, beginIndex < endIndex = false
+			2.2.1.2. sorting.merge.MergeSortWithSentinels: beginIndex = 5, endIndex = 5, middleIndex = 5, beginIndex < endIndex = false
+		2.2.2 sorting.merge.MergeSortWithSentinels: beginIndex = 6, endIndex = 7, middleIndex = 6, beginIndex < endIndex = true
+			2.2.2.1. sorting.merge.MergeSortWithSentinels: beginIndex = 6, endIndex = 6, middleIndex = 6, beginIndex < endIndex = false
+			2.2.2.2. sorting.merge.MergeSortWithSentinels: beginIndex = 7, endIndex = 7, middleIndex = 7, beginIndex < endIndex = false
