@@ -1,4 +1,6 @@
 package datastructures.queue;
+
+
 import java.util.Scanner;
 
 import static datastructures.queue.OperationType.DEQUEUE;
@@ -10,23 +12,23 @@ public class QueueUsingTwoStacksCommandLineDemo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int linesCount = Integer.parseInt(scanner.nextLine());
-        Queue queue = new StackQueue(linesCount);
+        MyQueue queue = new StackQueue(linesCount);
         for (int lineCount = 0; lineCount < linesCount; ++lineCount) {
             analyzeLine(scanner, queue);
         }
     }
 
-    private static void analyzeLine(Scanner scanner, Queue queue) {
+    private static void analyzeLine(Scanner scanner, MyQueue queue) {
         String[] line = scanner.nextLine().split(" ");
         String operation = line[0];
         if (line.length == 1 && DEQUEUE.getCode().equals(operation)) {
-            queue.dequeue();
+            queue.deQueue();
         }
         if (line.length == 1 && PRINT.getCode().equals(operation)) {
             System.out.println(queue.peek());
         }
         if (line.length == 2 && ENQUEUE.getCode().equals(operation)) {
-            queue.enqueue(Integer.parseInt(line[1]));
+            queue.enQueue(Integer.parseInt(line[1]));
         }
     }
 
@@ -37,7 +39,7 @@ enum OperationType {
     DEQUEUE("2"),
     PRINT("3");
 
-    private String code;
+    private final String code;
 
     OperationType(String code) {
         this.code = code;

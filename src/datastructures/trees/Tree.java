@@ -1,7 +1,10 @@
 package datastructures.trees;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.Stack;
 
 public class Tree {
     public void swapRoot() {
@@ -10,7 +13,7 @@ public class Tree {
         root.value = x;
     }
 
-    private class Node {
+    private static class Node {
         private int value;
         private Node leftChild;
         private Node rightChild;
@@ -32,6 +35,44 @@ public class Tree {
     }
 
     private Node root;
+
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     *     int val;
+     *     TreeNode left;
+     *     TreeNode right;
+     *     TreeNode() {}
+     *     TreeNode(int val) { this.val = val; }
+     *     TreeNode(int val, TreeNode left, TreeNode right) {
+     *         this.val = val;
+     *         this.left = left;
+     *         this.right = right;
+     *     }
+     * }
+     */
+
+        public List<Integer> postorderTraversal() {
+            List<Integer> r = new ArrayList<>();
+            Stack<Node> s = new Stack<>();
+            Set<Node> v = new HashSet<>();
+
+            Node n = root;
+
+            while(n!=null || !s.isEmpty()) {
+                while(n!=null && !v.contains(n)) { s.push(n); n = n.leftChild; }
+                n = s.peek();
+                n = n.rightChild;
+                if(n!=null) { n =n.rightChild;}
+                if(n==null) { n = s.pop(); v.add(n); r.add(n.value);}
+
+            }
+
+
+
+            return r;
+        }
+
 
     public void insert(int value) {
         root = insert(value, root);
@@ -86,10 +127,7 @@ public class Tree {
             return find(value, node.leftChild);
         } else if (node != null && value > node.value) {
             return find(value, node.rightChild);
-        } else if (node != null && value == node.value) {
-            return true;
-        }
-        return false;
+        } else return node != null && value == node.value;
     }
 
     private boolean findIterative(int value, Node node) {
@@ -205,7 +243,7 @@ public class Tree {
 
 
     public List<Integer> getNodesAtDistance(int k) {
-        List<Integer> numbers = new ArrayList();
+        List<Integer> numbers = new ArrayList<>();
         getNodesAtDistance(k,root,numbers);
         return numbers;
     }

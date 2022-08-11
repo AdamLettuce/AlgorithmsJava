@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class TrieWithHashMapTest {
+public class TrieWithMapWithHashMapTest {
 
     @Test
     public void insert_null() {

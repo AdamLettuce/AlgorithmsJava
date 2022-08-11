@@ -1,12 +1,14 @@
 package datastructures.queue;
 
+import datastructures.queue.MyQueue;
+
 import java.util.Stack;
 
-public class StackQueue implements Queue {
+public class StackQueue implements MyQueue {
 
-    private Stack<Integer> first = new Stack<>();
-    private Stack<Integer> second = new Stack<>();
-    private int size;
+    private final Stack<Integer> first = new Stack<>();
+    private final Stack<Integer> second = new Stack<>();
+    private final int size;
     private int count = 0;
 
     public StackQueue(int size) {
@@ -14,7 +16,7 @@ public class StackQueue implements Queue {
     }
 
     @Override
-    public void enqueue(Integer item) {
+    public void enQueue(int item) {
         if (first.size() < size) {
             first.push(item);
             ++count;
@@ -22,22 +24,22 @@ public class StackQueue implements Queue {
     }
 
     @Override
-    public Integer dequeue() {
+    public int deQueue() {
         moveFromFirstToSecond();
         if (!second.isEmpty()) {
             --count;
             return second.pop();
         }
-        return null;
+        return -1;
     }
 
     @Override
-    public Integer peek() {
+    public int peek() {
         moveFromFirstToSecond();
         if (!second.isEmpty()) {
             return second.peek();
         }
-        return null;
+        return -1;
     }
 
     @Override

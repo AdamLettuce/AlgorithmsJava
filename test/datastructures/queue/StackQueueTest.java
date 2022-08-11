@@ -3,12 +3,12 @@ package datastructures.queue;
 public class StackQueueTest extends ArrayQueueTest {
 
     @Override
-    protected Queue getInstanceSizeOne() {
+    protected MyQueue getInstanceSizeOne() {
         return new StackQueue(1);
     }
 
     @Override
-    protected Queue getInstanceSizeTwo() {
+    protected MyQueue getInstanceSizeTwo() {
         return new StackQueue(2);
     }
 }

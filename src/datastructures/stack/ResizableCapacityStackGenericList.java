@@ -1,10 +1,10 @@
 package datastructures.stack;
 
-import datastructures.list.MyList;
+import datastructures.list.SingleLinkedList;
 
 public class ResizableCapacityStackGenericList<T> {
     private int count = 0;
-    MyList<T> elements = new MyList<>();
+    SingleLinkedList<T> elements = new SingleLinkedList<>();
 
     void push(T element) {
         elements.addBegin(element);

@@ -2,12 +2,8 @@ package datastructures.queue;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Queue;
 import java.util.LinkedList;
-
-import static org.junit.Assert.*;
 
 public class ReverseQueueFromBeginTest {
     @Test

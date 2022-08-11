@@ -1,6 +1,6 @@
 package datastructures.list;
 
-public class MyList<T> {
+public class SingleLinkedList<T> {
     private Node<T> first;
     private Node<T> last;
     private int size;
@@ -120,8 +120,8 @@ public class MyList<T> {
         return iterator.data;
     }
 
-    MyList<T> reverseImmutable() {
-        MyList<T> newList = new MyList<>();
+    SingleLinkedList<T> reverseImmutable() {
+        SingleLinkedList<T> newList = new SingleLinkedList<>();
         Node<T> iterator = first;
         while (iterator != null) {
             newList.addBegin(iterator.data);

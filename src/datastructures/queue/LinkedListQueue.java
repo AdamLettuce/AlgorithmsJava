@@ -1,7 +1,9 @@
 package datastructures.queue;
 
 
-public class LinkedListQueue implements Queue {
+import datastructures.queue.MyQueue;
+
+public class LinkedListQueue implements MyQueue {
 
     private Node head;
     private Node tail;
@@ -16,7 +18,7 @@ public class LinkedListQueue implements Queue {
         }
     }
 
-    private int size;
+    private final int size;
     private int count = 0;
 
     public LinkedListQueue(int size) {
@@ -24,7 +26,7 @@ public class LinkedListQueue implements Queue {
     }
 
     @Override
-    public void enqueue(Integer item) {
+    public void enQueue(int item) {
         Node newItem = new Node(item);
         if(isEmpty()) {
             head = tail = newItem;
@@ -37,9 +39,9 @@ public class LinkedListQueue implements Queue {
     }
 
     @Override
-    public Integer dequeue() {
+    public int deQueue() {
         if(isEmpty()) {
-            return null;
+            return -1;
         }
         Node oldHead = head;
         if(head!=tail) {
@@ -54,9 +56,9 @@ public class LinkedListQueue implements Queue {
     }
 
     @Override
-    public Integer peek() {
+    public int peek() {
         if(isEmpty()) {
-            return null;
+            return -1;
         }
         return head.data;
     }

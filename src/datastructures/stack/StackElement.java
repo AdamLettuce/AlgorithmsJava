@@ -1,4 +1,4 @@
-package datastructures.stack.new_version;
+package datastructures.stack;
 
 public class StackElement {
     int data;
