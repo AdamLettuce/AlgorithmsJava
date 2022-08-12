@@ -1,4 +1,4 @@
-package datastructures.list;
+package datastructures.list.signlelinked;
 
 public class Node<V> {
 

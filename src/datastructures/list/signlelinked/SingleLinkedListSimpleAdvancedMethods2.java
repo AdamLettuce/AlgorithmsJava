@@ -1,6 +1,6 @@
 package datastructures.list.signlelinked;
 
-public class SLL {
+public class SingleLinkedListSimpleAdvancedMethods2 {
 
     public void reverse() {
         if(isEmpty()) {

@@ -1,4 +1,4 @@
-package datastructures.list;
+package datastructures.list.signlelinked;
 
 public interface SignleLinkedList<T> {
     void addBegin(T data);

@@ -1,6 +1,6 @@
-package datastructures.list;
+package datastructures.list.signlelinked;
 
-public class SingleLinkedListComplex<T> implements SignleLinkedList<T> {
+public class SingleLinkedListTwoPointersAdvancedMethods<T> implements SignleLinkedList<T> {
     private Node<T> first;
     private Node<T> last;
     private int size;
@@ -125,8 +125,8 @@ public class SingleLinkedListComplex<T> implements SignleLinkedList<T> {
         return iterator.data;
     }
 
-    SingleLinkedListComplex<T> reverseImmutable() {
-        SingleLinkedListComplex<T> newList = new SingleLinkedListComplex<>();
+    SingleLinkedListTwoPointersAdvancedMethods<T> reverseImmutable() {
+        SingleLinkedListTwoPointersAdvancedMethods<T> newList = new SingleLinkedListTwoPointersAdvancedMethods<>();
         Node<T> iterator = first;
         while (iterator != null) {
             newList.addBegin(iterator.data);

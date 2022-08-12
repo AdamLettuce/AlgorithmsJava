@@ -1,6 +1,6 @@
 package datastructures.list.signlelinked;
 
-public class ListSingleLinked {
+public class SingleLinkedListSimpleAdvancedMethods {
     private static final class Node {
         private Node next;
         private final int data;
@@ -17,7 +17,7 @@ public class ListSingleLinked {
     private Node head;
 
     public static void main(String[] args) {
-        ListSingleLinked listSingleLinked = new ListSingleLinked();
+        SingleLinkedListSimpleAdvancedMethods listSingleLinked = new SingleLinkedListSimpleAdvancedMethods();
         System.out.println(listSingleLinked);
         listSingleLinked.insertBegin(5);
         listSingleLinked.insertBegin(15);
