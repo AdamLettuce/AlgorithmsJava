@@ -77,20 +77,21 @@ public class FixedSizeCircularQueue implements MyQueue {
         q.enQueue(5);
         System.out.println(q);
 
-        System.out.println("Dequeue: " + q.deQueue());
+        System.out.println("Dequeue: " + (q.deQueue() == 1));
 
         q.enQueue(7);
 
-        System.out.println("Dequeue: " + q.deQueue());
-        System.out.println("Dequeue: " + q.deQueue());
+        System.out.println("Dequeue: " + (q.deQueue() == 2));
+        System.out.println("Dequeue: " + (q.deQueue() == 3));
 
-        System.out.println("Peek: " + q.peek());
+        System.out.println("Peek: " + (q.peek() == 4));
 
-        System.out.println("Dequeue: " + q.deQueue());
+        System.out.println("Dequeue: " + (q.deQueue() == 4));
 
-        System.out.println("Dequeue: " + q.deQueue());
+//        System.out.println("Dequeue: " + (q.deQueue() == -1));//non circular queue
+        System.out.println("Dequeue: " + (q.deQueue() == 7));//circular queue
 
-        System.out.println("Peek: " +q.peek());
+        System.out.println("Peek: " +( q.peek() == - 1));
 
     }
 }
