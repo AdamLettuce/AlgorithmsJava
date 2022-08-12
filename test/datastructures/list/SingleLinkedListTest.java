@@ -9,38 +9,38 @@ public class SingleLinkedListTest {
 
     @Test
     public void testGet1() {
-        SingleLinkedList<Integer> list = listWithThreeElements();
+        SingleLinkedListComplex<Integer> list = listWithThreeElements();
         assertEquals(3, (int) list.get(0));
     }
 
     @Test
     public void testGet2() {
-        SingleLinkedList<Integer> list = listWithThreeElements();
+        SingleLinkedListComplex<Integer> list = listWithThreeElements();
         assertEquals(2,(int)list.get(1));
     }
 
     @Test
     public void testGet3() {
-        SingleLinkedList<Integer> list = listWithThreeElements();
+        SingleLinkedListComplex<Integer> list = listWithThreeElements();
         assertEquals(1,(int)list.get(2));
     }
     
     @Test
     public void testEmpty_noElements_true() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         assertTrue(list.isEmpty());
     }
 
     @Test
     public void testEmpty_oneElement_false() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         list.addBegin(1);
         assertFalse(list.isEmpty());
     }
 
     @Test
     public void testAddFromBegin() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         list.addBegin(123);
         assertEquals(1,list.size());
         assertEquals(123,(int)list.get(0));
@@ -48,7 +48,7 @@ public class SingleLinkedListTest {
 
     @Test
     public void testAddFromBeginTwoElements() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         list.addBegin(123);
         list.addBegin(456);
         assertEquals(2,list.size());
@@ -58,7 +58,7 @@ public class SingleLinkedListTest {
 
     @Test
     public void testAddFromEndTwoElements() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         list.addEnd(123);
         list.addEnd(456);
         assertEquals(2,list.size());
@@ -68,20 +68,20 @@ public class SingleLinkedListTest {
 
     @Test
     public void testHasOneElement_empty_false() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         assertFalse(list.hasOneElement());
     }
 
     @Test
     public void testHasOneElement_oneElement_true() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         list.addBegin(123);
         assertTrue(list.hasOneElement());
     }
 
     @Test
     public void testHasOneElement_twoElements_false() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         list.addBegin(123);
         list.addBegin(456);
         assertFalse(list.hasOneElement());
@@ -89,7 +89,7 @@ public class SingleLinkedListTest {
 
     @Test
     public void testPrint() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         list.addBegin(1);
         list.addBegin(2);
         list.addBegin(3);
@@ -99,13 +99,13 @@ public class SingleLinkedListTest {
 
     @Test
     public void removeBegin_emptyList_null() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         assertNull(list.removeBegin());
     }
 
     @Test
     public void removeBegin_oneElement_notNull() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         list.addEnd(1);
         assertEquals(1, (int) list.removeBegin());
         assertTrue(list.isEmpty());
@@ -113,7 +113,7 @@ public class SingleLinkedListTest {
 
     @Test
     public void removeBegin_twoElements_notNull() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         list.addEnd(1);
         list.addEnd(2);
         assertEquals(1, (int) list.removeBegin());
@@ -124,7 +124,7 @@ public class SingleLinkedListTest {
 
     @Test
     public void removeEnd_empty_null() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         assertNull(list.removeEnd());
         assertTrue(list.isEmpty());
         assertEquals(0, list.size());
@@ -132,7 +132,7 @@ public class SingleLinkedListTest {
 
     @Test
     public void removeEnd_oneElement_notNull() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         list.addEnd(1);
         assertEquals(1, (int) list.removeEnd());
         assertTrue(list.isEmpty());
@@ -141,7 +141,7 @@ public class SingleLinkedListTest {
 
     @Test
     public void removeEnd_twoElements_notNull() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         list.addEnd(1);
         list.addEnd(2);
         assertEquals(2, (int) list.removeEnd());
@@ -154,7 +154,7 @@ public class SingleLinkedListTest {
 
     @Test
     public void reverse_oneElement() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         list.addEnd(1);
         list = list.reverseImmutable();
         assertEquals(1, (int) list.get(0));
@@ -162,7 +162,7 @@ public class SingleLinkedListTest {
 
     @Test
     public void reverse_twoElements() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         list.addEnd(1);
         list.addEnd(2);
         list = list.reverseImmutable();
@@ -172,7 +172,7 @@ public class SingleLinkedListTest {
 
     @Test
     public void reverse_threeElements() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         list.addEnd(1);
         list.addEnd(2);
         list.addEnd(3);
@@ -184,13 +184,13 @@ public class SingleLinkedListTest {
 
     @Test
     public void reverseMutable_emptyList() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         list.reverseMutable();
     }
 
     @Test
     public void reverseMutable_oneElement() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         list.addEnd(1);
         list.reverseMutable();
         assertEquals(1, (int) list.get(0));
@@ -198,7 +198,7 @@ public class SingleLinkedListTest {
 
     @Test
     public void reverseMutable_twoElements() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         list.addEnd(1);
         list.addEnd(2);
         list.reverseMutable();
@@ -208,7 +208,7 @@ public class SingleLinkedListTest {
 
     @Test
     public void reverseMutable_threeElements() {
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> list = new SingleLinkedListComplex<>();
         list.addEnd(1);
         list.addEnd(2);
         list.addEnd(3);
@@ -218,8 +218,8 @@ public class SingleLinkedListTest {
         assertEquals(1, (int) list.get(2));
     }
 
-    private SingleLinkedList<Integer> listWithThreeElements() {
-        SingleLinkedList<Integer> result = new SingleLinkedList<>();
+    private SingleLinkedListComplex<Integer> listWithThreeElements() {
+        SingleLinkedListComplex<Integer> result = new SingleLinkedListComplex<>();
         result.addBegin(1);
         result.addBegin(2);
         result.addBegin(3);
@@ -228,20 +228,20 @@ public class SingleLinkedListTest {
 
     @Test
     public void hasCycle_emptyList_noCycle() {
-        SingleLinkedList<Integer> result = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> result = new SingleLinkedListComplex<>();
         assertFalse(result.hasCycle());
     }
 
     @Test
     public void hasCycle_oneElementOnList_noCycle() {
-        SingleLinkedList<Integer> result = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> result = new SingleLinkedListComplex<>();
         result.addBegin(1);
         assertFalse(result.hasCycle());
     }
 
     @Test
     public void hasCycle_firstRefersToItself_hasCycle() {
-        SingleLinkedList<Integer> result = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> result = new SingleLinkedListComplex<>();
 
         Node<Integer> first = new Node<>(1);
         first.next = first;
@@ -252,7 +252,7 @@ public class SingleLinkedListTest {
 
     @Test
     public void hasCycle_secondRefersToFirst_hasCycle() {
-        SingleLinkedList<Integer> result = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> result = new SingleLinkedListComplex<>();
 
         Node<Integer> first = new Node<>(1);
         result.addBegin(first);
@@ -266,7 +266,7 @@ public class SingleLinkedListTest {
 
     @Test
     public void hasCycle_thirdRefersToFirst_hasCycle() {
-        SingleLinkedList<Integer> result = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> result = new SingleLinkedListComplex<>();
 
         Node<Integer> first = new Node<>(1);
         result.addBegin(first);
@@ -283,7 +283,7 @@ public class SingleLinkedListTest {
 
     @Test
     public void hasCycle_thirdRefersToSecond_hasCycle() {
-        SingleLinkedList<Integer> result = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> result = new SingleLinkedListComplex<>();
 
         Node<Integer> first = new Node<>(1);
         result.addBegin(first);
@@ -300,13 +300,13 @@ public class SingleLinkedListTest {
 
     @Test
     public void hasCycle_threeElements_noCycle() {
-        SingleLinkedList<Integer> result = listWithThreeElements();
+        SingleLinkedListComplex<Integer> result = listWithThreeElements();
         assertFalse(result.hasCycle());
     }
 
     @Test
     public void hasCycle_fourthRefersToFirst_hasCycle() {
-        SingleLinkedList<Integer> result = new SingleLinkedList<>();
+        SingleLinkedListComplex<Integer> result = new SingleLinkedListComplex<>();
 
         Node<Integer> first = new Node<>(1);
         result.addBegin(first);
