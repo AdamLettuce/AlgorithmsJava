@@ -16,7 +16,7 @@ public class SingleLinkedListSimple implements SignleLinkedList<Integer> {
     @Override
     public void addBegin(Integer data) {
         Node<Integer> newNode = new Node<>(data);
-        if(isEmpty()) {
+        if (isEmpty()) {
             head = newNode;
         } else {
             newNode.next = head;
@@ -26,14 +26,14 @@ public class SingleLinkedListSimple implements SignleLinkedList<Integer> {
 
     @Override
     public Integer removeBegin() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             System.out.println("Cannot remove from empty list.");
             return -1;
         }
 
         int result = head.value;
         Node<Integer> tmp = head.next;
-        if(tmp==null) {
+        if (tmp == null) {
             head = null;
             return result;
         }
@@ -53,7 +53,7 @@ public class SingleLinkedListSimple implements SignleLinkedList<Integer> {
     public int size() {
         int result = 0;
         Node<Integer> iterator = head;
-        while(iterator!=null) {
+        while (iterator != null) {
             ++result;
             iterator = iterator.next;
         }
@@ -62,9 +62,13 @@ public class SingleLinkedListSimple implements SignleLinkedList<Integer> {
 
     @Override
     public Integer get(int i) {
+        if(i<0 || isEmpty()) {
+            return -1;
+        }
+
         Node<Integer> iterator = head;
         int idx = 0;
-        while(iterator!=null && idx < i) {
+        while (iterator != null && idx < i) {
             iterator = iterator.next;
             ++idx;
         }
@@ -74,17 +78,42 @@ public class SingleLinkedListSimple implements SignleLinkedList<Integer> {
 
     @Override
     public String toString() {
+
+        if(isEmpty()) {
+            return ("[]");
+        }
+
         StringBuilder stringBuilder = new StringBuilder();
 
         Node<Integer> iterator = head;
         stringBuilder.append("[");
-        while(iterator.next!=null) {
+        while (iterator.next != null) {
             stringBuilder.append(iterator.value).append(", ");
             iterator = iterator.next;
         }
         stringBuilder.append(iterator.value).append("]");
 
         return stringBuilder.toString();
+    }
+
+    @Override
+    public void addAt(int position, int value) {
+        if (position <= 0 || isEmpty()) {
+            addBegin(value);
+        } else {
+            int i = 0;
+            Node<Integer> it = head;
+            Node<Integer> newNode = new Node<>(value);
+            
+            while (i < position - 1 && it.next != null) {
+                it = it.next;
+                ++i;
+            }
+
+            newNode.next = it.next;
+            it.next = newNode;
+        }
+
     }
 
     public static void main(String[] args) {
@@ -94,10 +123,13 @@ public class SingleLinkedListSimple implements SignleLinkedList<Integer> {
         l.addBegin(3);
         System.out.println(l);
 
-        System.out.println(l.removeBegin());
+        System.out.println("Removed from begin: " + l.removeBegin());
         l.addBegin(4);
-
+        System.out.println(l);
         System.out.println("Size = " + l.size());
+
+        l.addAt(2,91);
+        System.out.println(l);
 
         System.out.println(l.removeBegin());
         System.out.println(l.removeBegin());

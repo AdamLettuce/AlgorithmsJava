@@ -11,6 +11,11 @@ public class SingleLinkedListTwoPointersAdvancedMethods<T> implements SignleLink
         addBegin(new Node<>(data));
     }
 
+    @Override
+    public void addAt(int position, int value) {
+        throw new IllegalStateException("Please implement me.");
+    }
+
     void addBegin(Node<T> newNode) {
         incrementSize();
         if (isEmpty()) {
