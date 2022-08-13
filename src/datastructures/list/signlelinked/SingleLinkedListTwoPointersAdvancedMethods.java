@@ -1,6 +1,21 @@
 package datastructures.list.signlelinked;
 
 public class SingleLinkedListTwoPointersAdvancedMethods<T> implements SignleLinkedList<T> {
+
+    static final class Node<V> {
+
+        V data;
+        Node<V> next;
+
+        Node(V data) {
+            this.data = data;
+        }
+
+        public Node<V> getNext() {
+            return next;
+        }
+    }
+
     private Node<T> first;
     private Node<T> last;
     private int size;
