@@ -18,7 +18,7 @@ public class DoubleLinkedListSimple implements DoubleLinkedList<Integer> {
     @Override
     public void addBegin(Integer data) {
         Node<Integer> newNode = new Node<>(data);
-        if(isEmpty()) {
+        if (isEmpty()) {
             head = newNode;
             tail = newNode;
         } else {
@@ -32,7 +32,7 @@ public class DoubleLinkedListSimple implements DoubleLinkedList<Integer> {
     @Override
     public void addEnd(Integer data) {
         Node<Integer> newNode = new Node<>(data);
-        if(isEmpty()) {
+        if (isEmpty()) {
             head = newNode;
             tail = newNode;
         } else {
@@ -45,14 +45,14 @@ public class DoubleLinkedListSimple implements DoubleLinkedList<Integer> {
 
     @Override
     public Integer removeBegin() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             System.out.println("Cannot remove from empty list.");
             return -1;
         }
 
         Node<Integer> toRemove = head;
         Integer result = toRemove.value;
-        if(head == tail) {
+        if (head == tail) {
             head = null;
             tail = null;
         } else {
@@ -66,14 +66,14 @@ public class DoubleLinkedListSimple implements DoubleLinkedList<Integer> {
 
     @Override
     public Integer removeEnd() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             System.out.println("Cannot remove from empty list.");
             return -1;
         }
 
         Node<Integer> toRemove = tail;
         Integer result = toRemove.value;
-        if(head == tail) {
+        if (head == tail) {
             head = null;
             tail = null;
         } else {
@@ -87,7 +87,7 @@ public class DoubleLinkedListSimple implements DoubleLinkedList<Integer> {
 
     @Override
     public boolean isEmpty() {
-        return head==tail && head==null;
+        return head == tail && head == null;
     }
 
     @Override
@@ -107,7 +107,7 @@ public class DoubleLinkedListSimple implements DoubleLinkedList<Integer> {
         stringBuilder.append("[");
 
         Node<Integer> iterator = head;
-        while (iterator.next!=null) {
+        while (iterator.next != null) {
             stringBuilder.append(iterator.value).append(", ");
             iterator = iterator.next;
         }
