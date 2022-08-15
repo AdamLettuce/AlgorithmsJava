@@ -16,21 +16,24 @@ public class StackQueue implements MyQueue {
     }
 
     @Override
-    public void enQueue(int item) {
+    public boolean enQueue(int item) {
         if (first.size() < size) {
             first.push(item);
             ++count;
+            return true;
         }
+        return false;
     }
 
     @Override
-    public int deQueue() {
+    public boolean deQueue() {
         moveFromFirstToSecond();
         if (!second.isEmpty()) {
             --count;
-            return second.pop();
+            second.pop();
+            return true;
         }
-        return -1;
+        return false;
     }
 
     @Override

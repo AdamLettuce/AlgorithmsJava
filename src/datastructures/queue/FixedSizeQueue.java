@@ -13,30 +13,32 @@ public class FixedSizeQueue implements MyQueue {
     }
 
     @Override
-    public void enQueue(int value) {
+    public boolean enQueue(int value) {
         if (isFull()) {
             System.out.println(THE_QUEUE_IS_FULL_CANNOT_EN_QUEUE + value);
+            return false;
         } else {
             if (isEmpty()) {
                 front = 0;
             }
             System.out.println("Enqueue: " + value);
             data[++rear] = value;
+            return true;
         }
     }
 
     @Override
-    public int deQueue() {
+    public boolean deQueue() {
         if(isEmpty()) {
             System.out.println("The queue is empty. Cannot deQueue.");
-            return -1;
+            return false;
         }
         int result = data[front++];
         if(front>rear) {
             front = -1;
             rear = -1;
         }
-        return result;
+        return true;
     }
 
     @Override
@@ -77,20 +79,20 @@ public class FixedSizeQueue implements MyQueue {
         q.enQueue(5);
         System.out.println(q);
 
-        System.out.println("Dequeue: " + (q.deQueue() == 1));
+        System.out.println("Dequeue: " + (q.deQueue()));
 
         q.enQueue(7);
 
-        System.out.println("Dequeue: " + (q.deQueue() == 2));
-        System.out.println("Dequeue: " + (q.deQueue() == 3));
+        System.out.println("Dequeue: " + (q.deQueue()));
+        System.out.println("Dequeue: " + (q.deQueue()));
 
-        System.out.println("Peek: " + (q.peek() == 4));
+        System.out.println("Peek: " + (q.peek()));
 
-        System.out.println("Dequeue: " + (q.deQueue() == 4));
+        System.out.println("Dequeue: " + (q.deQueue()));
 
-        System.out.println("Dequeue: " + (q.deQueue() == -1));//non circular queue
+        System.out.println("Dequeue: " + (q.deQueue()));//non circular queue
 //        System.out.println("Dequeue: " + (q.deQueue() == 7));//circular queue
 
-        System.out.println("Peek: " +( q.peek() == - 1));
+        System.out.println("Peek: " +( q.peek()));
     }
 }

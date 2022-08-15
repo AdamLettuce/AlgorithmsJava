@@ -26,7 +26,7 @@ public class LinkedListQueue implements MyQueue {
     }
 
     @Override
-    public void enQueue(int item) {
+    public boolean enQueue(int item) {
         Node newItem = new Node(item);
         if(isEmpty()) {
             head = tail = newItem;
@@ -36,23 +36,24 @@ public class LinkedListQueue implements MyQueue {
             tail = newItem;
         }
         ++count;
+        return true;
     }
 
     @Override
-    public int deQueue() {
+    public boolean deQueue() {
         if(isEmpty()) {
-            return -1;
+            return false;
         }
         Node oldHead = head;
         if(head!=tail) {
             head = head.next;
             oldHead.next = head.prev = null;
-            return oldHead.data;
+            return true;
         }
         head.next = head.prev = null;
         tail = null;
         --count;
-        return oldHead.data;
+        return true;
     }
 
     @Override

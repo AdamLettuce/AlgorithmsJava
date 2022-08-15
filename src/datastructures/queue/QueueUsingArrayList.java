@@ -9,19 +9,21 @@ public class QueueUsingArrayList implements MyQueue {
     int capacity = 5;
 
     @Override
-    public void enQueue(int value) {
+    public boolean enQueue(int value) {
         if(isFull()) {
-            throw new IllegalArgumentException();
+            return false;
         }
         items.add(value);
+        return true;
     }
 
     @Override
-    public int deQueue() {
+    public boolean deQueue() {
         if(isEmpty()) {
-            throw new IllegalArgumentException();
+            return false;
         }
-        return items.remove(0);
+        items.remove(0);
+        return true;
     }
 
     @Override

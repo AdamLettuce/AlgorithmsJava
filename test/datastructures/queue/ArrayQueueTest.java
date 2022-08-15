@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 public class ArrayQueueTest {
@@ -20,7 +19,7 @@ public class ArrayQueueTest {
     public void enQueue_oneElement_deQueueReturnsIt() {
         MyQueue instance = getInstanceSizeOne();
         instance.enQueue(1);
-        assertEquals(1,instance.deQueue());
+        assertTrue(instance.deQueue());
         assertEquals(-1,instance.peek());
     }
 
@@ -39,13 +38,13 @@ public class ArrayQueueTest {
         instance.enQueue(2);
         instance.deQueue();
         instance.enQueue(3);
-        assertEquals(2,instance.deQueue());
+        assertTrue(instance.deQueue());
     }
 
     @Test
     public void deQueue_emptyQueue_null() {
         MyQueue instance = getInstanceSizeOne();
-        assertEquals(-1,instance.deQueue());
+        assertFalse(instance.deQueue());
     }
 
     @Test

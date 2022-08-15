@@ -17,14 +17,14 @@ public class ArrayPriorityQueue {
         System.out.println(arrayPriorityQueue);
     }
 
-    public void enqueue(Integer item) {
+    public boolean enqueue(Integer item) {
         if(item==null) {
-            throw new IllegalArgumentException();
+            return false;
         }
         if(count==0) {
             data[0] = item;
             ++count;
-            return;
+            return true;
         }
 
         if(count==data.length) {
@@ -42,7 +42,7 @@ public class ArrayPriorityQueue {
         }
         data[i+1] = item;
         ++count;
-
+        return true;
     }
 
     @Override

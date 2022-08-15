@@ -1,8 +1,8 @@
 package datastructures.queue;
 
 public interface MyQueue {
-    void enQueue(int value);
-    int deQueue();
+    boolean enQueue(int value);
+    boolean deQueue();
     boolean isEmpty();
     boolean isFull();
     int peek();
