@@ -3,6 +3,8 @@ package leetcode.queue;
 import java.util.LinkedList;
 import java.util.Queue;
 
+//346. Moving Average from Data Stream
+//Level = Easy
 class MovingAverageFromDataStream {
 
     Queue<Integer> q1 = new LinkedList<>();

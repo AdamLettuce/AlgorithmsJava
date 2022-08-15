@@ -1,5 +1,7 @@
 package leetcode.queue;
 
+//622. Design Circular Queue
+//Level = Medium
 class MyCircularQueue {
 
     int [] data;
