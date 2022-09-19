@@ -7,7 +7,7 @@ import java.util.Arrays;
 /**
  * Created by adam on 11/02/2018.
  */
-public class Bubble extends SortingAlgorithm {
+public class BubbleFromFront extends SortingAlgorithm {
 
     @Override
     public int[] sort(int[] data) {
@@ -18,8 +18,8 @@ public class Bubble extends SortingAlgorithm {
 
     private void sortInternal(int[] data) {
         for (int i = data.length; i > 0; i--) {
-            for (int j = 1; j < data.length-1; j++) {
-                if (data[j - 1] >= data[j]) {
+            for (int j = 1; j < data.length; j++) {
+                if (data[j - 1] > data[j]) {
                     int tmp = data[j - 1];
                     data[j - 1] = data[j];
                     data[j] = tmp;
